@@ -1,59 +1,127 @@
 // "use client"
 
-// import { useState } from "react"
+import { useEffect, useState } from "react"
+
+import {listCategory} from "./component/list-category.jsx"
+
+const NAME = "name"
+const INGREDIENTS = "ingredients"
+const LIST = "list"
 
 
-// export default function Home() {
-// 	const [result, setResult]=useState(null)
-// 	const [cockTailToSearchText,setCockTailToSearchText] =useState("")
+export default function Home() {
+
+	const [appState, setAppState] = useState(LIST)
+	const [result, setResult]=useState(null)
+	const [cockTailToSearchText,setCockTailToSearchText] = useState()
+	const [searchParameter, setSearchParamter] = useState("list.php?c=")
 	
-// 	// To fetch data from the cocktail DB API
-// 	async function fetchCocktailData(cockTailToSearch) {
-		
-// 		try {
-// 			// conneting with route.js and sending the parameters 
-// 			const res = await fetch(`/api/cocktail`, {
-// 				method:`Post`,
-// 				body: JSON.stringify({search:cockTailToSearch})
-// 			})
-// 			// console.log(res)
+	// To fetch data from the cocktail DB API
+	async function fetchCocktailData(cockTailToSearch) {
+		try {
+			// conneting with route.js and sending the parameters 
+			const res = await fetch(`/api/cocktail`, {
+				method:`Post`,
+				body: JSON.stringify({search:cockTailToSearch, parameter:searchParameter})
+			})
+			// console.log(res)
 			
 // 			if (!res.ok) {
 // 			throw new Error(`HTTP error! Status: ${response.status}`);
 // 			}
 // 			const data = await res.json();
 			
-// 			// Process the JSON data
-// 			console.log(data);
+			// Process the JSON data
+			// console.log(res);
 			
-// 			setResult(JSON.stringify(data))
-// 			// return data;
-// 		} catch (error) {
-// 			console.error('Error fetching data:', error.message);
-// 		}
+			setResult(JSON.stringify(data))
+			return data;
+		} catch (error) {
+			console.error('Error fetching data:', error.message);
+		}
+		
+	}
+	if (appState === LIST){
+	 var listData= fetchCocktailData("list")
+	 console.log(listData)
+	}
 
-// 	}
-// 	return (
-// 		<div className="">
-// 			<div>
-// 				<input
-// 				className="text-black "
-// 				placeholder="enter cocktail name"
-// 				type="text"
-// 				onChange={(e) => setCockTailToSearchText(e.target.value)}
-// 				></input>
-// 				<button
-// 				className="border-2 rounded-full bg-sky-500 text-black"
-// 				onClick={() =>fetchCocktailData(cockTailToSearchText)}
-// 				>Search</button>
-// 			</div>
-// 			<div>
-// 				<div>{result}</div>
-// 			</div>
-// 		</div>
-// 	);
+	// useEffect(() => {
 
-"use client";
+	// 	if (searchParameter !== "search.php?i=" && searchParameter !== "search.php?s=") {
+	// 		fetchCocktailData(cockTailToSearchText)
+	// 	}
+	// }, [searchParameter])
+	
+	function handleClick(compo, para){
+		setAppState(compo)
+		setSearchParamter(para)
+	}
+
+
+	return (
+		<div className="">
+			<div>
+			
+				<button
+					className={"border-2 rounded-full text-white px-4 mx-2 "+(appState === NAME ? "bg-sky-900" : "bg-sky-400")}
+					onClick={() =>handleClick(NAME, "search.php?s=")}
+					>By Name</button>
+
+				<button
+					className={"border-2 rounded-full text-white px-4 mx-2 "+(appState === INGREDIENTS? "bg-sky-900":"bg-sky-400")}
+					onClick={() =>handleClick(INGREDIENTS, "search.php?i=")}
+					>By Ingredients</button>
+
+				<button
+					className={"border-2 rounded-full text-white px-4 mx-2 "+(appState === LIST? "bg-sky-900":"bg-sky-400")}
+					onClick={() =>handleClick(LIST,"list.php?c=")}
+					>List Category</button>
+
+				{appState === LIST ? (
+					<></>
+				) : (null)}
+					
+				{appState === NAME ? (
+					
+					<div className="my-5">
+					<input
+						className="text-black "
+						placeholder="Enter Cocktail name"
+						type="text"
+						onChange={(e) => setCockTailToSearchText(e.target.value)}
+					/>
+					<button
+						className="border-2 rounded-full bg-sky-500 text-black px-4 mx-2"
+						onClick={() =>fetchCocktailData(cockTailToSearchText)}
+						>Search
+					</button>
+					</div>
+				) : (null)}
+
+				{appState === INGREDIENTS ? (
+					<div className="my-5">
+					<input
+						className="text-black "
+						placeholder="Enter Ingredients name"
+						type="text"
+						onChange={(e) => setCockTailToSearchText(e.target.value)}
+					/>
+					<button
+						className="border-2 rounded-full bg-sky-500 text-black px-4 mx-2"
+						onClick={() =>fetchCocktailData(cockTailToSearchText)}
+						>Search
+					</button>
+					</div>
+				) : (null)}
+			
+			</div>
+			<div>
+				<div>{result}</div>
+			</div>
+		</div>
+	);
+
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
 import { IoMdHome } from "react-icons/io";
