@@ -4,7 +4,7 @@ export default function DisplayCocktail({data}) {
         <div className="grid grid-cols-3 gap-4">
         {data.drinks.map((obj)=>{
             return (
-            <div className="p-10 pb-3 border-2 bg-red-100 w-fit text-center ">
+            <div className="p-10 pb-3 border-2 bg-red-100 w-fit text-center">
             <a>
                 <div>
                 <img src={obj.strDrinkThumb} className="w-64"></img>
@@ -19,5 +19,3 @@ export default function DisplayCocktail({data}) {
         </div>    
     )
 }
-
-	
