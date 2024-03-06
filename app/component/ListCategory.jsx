@@ -1,11 +1,13 @@
 export default function ListComponent({list}){
+    if (!list) return <></>
+    console.log(list+"here")
     return(
      <>
-     {list.data.map((srtCategory)=>{
+     {list.data.map((obj)=>{
          return(<p className="  pb-2 px-5 md:px-16">
-             {Object.values(srtCategory)}
+             {obj.strCategory}
          </p>)
-     })}
+      })}
      </>
     )
  }
