@@ -140,89 +140,43 @@ export default function Home() {
 			</nav>
 
 			<div className="flex flex-col-reverse md:flex-row">
-				<nav className= "md:pl-2 items-center rounded-t-[30px] bg-[#B66876] h-20 md:w-16 md:gap-4 md:h-1/2 md:py-4 flex sticky bottom-0 md:flex-col md:justify-around mt-44 md:rounded-full md:ml-2">
+			{/* <nav className= "md:px-2 items-center rounded-t-[30px] bg-[#B66876] h-20 md:w-16 md:gap-4 md:h-1/2 md:py-4 flex sticky bottom-0 md:flex-col md:justify-around mt-44 md:rounded-full md:ml-2"> */}
 
-<<<<<<< HEAD
-      <div className= "text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
-        <div className=" rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-            <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-auto w-auto">
-            </img>
-            <p className="text-black mt-2"> margarita </p>
-        </div>
-        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-            <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-            </img>
-            <p className="text-black mt-2"> margarita </p>
-        </div>
-        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-            <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-            </img>
-            <p className="text-black mt-2"> margarita </p>
-        </div>
-        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-            <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-            </img>
-            <p className="text-black mt-2"> margarita </p>
-        </div>
-        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-            <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-            </img>
-            <p className="text-black mt-2"> margarita </p>
-        </div>
-        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-            <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-            </img>
-            <p className="text-black mt-2"> margarita </p>
-        </div>
-       
-      </div>
-    </div>
-</div>
-    </>
-  );
-=======
-					<button 
-					title="Home" 
-					className={"mx-auto my-2 h-14 w-14 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25"+(appState === NAME ? "bg-sky-900" : "")}
-					onClick={() =>handleClick(HOME, "list.php?c=")}
-					>
-					
-						<IoMdHome size={36} className="text-black ml-1"/>
-					</button>
-
-					<button 
-					title="Cocktails" 
-					className={"mx-auto my-2 h-14 w-14 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25"+(appState === NAME ? "bg-sky-900" : "")}
-					onClick={() =>handleClick(NAME, "search.php?s=")}
-					>
-						<FaMartiniGlassCitrus size={36} className="text-black ml-1" />
-					</button>
-
-					<button 
-					title="Ingredients" 
-					className={"md:pl-1 mx-auto my-2 h-14 w-14 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25"+(appState === NAME ? "bg-sky-900" : "")}
-					onClick={() =>handleClick(NAME, "filter.php?i=")}
-					>
-						<FaFilePen size={36} className="text-black ml-1" />
-					</button>
-				</nav>
-	{/* TO BE GENERATED FROM A COMPONENT */}
-				<div className= "text-center w-full h-full md:pl-10 md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
+				<div className= "text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
 					<div className=" rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-auto w-auto"/>
+						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-auto w-auto">
+						</img>
 						<p className="text-black mt-2"> margarita </p>
 					</div>
 					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34"/>
+						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+						</img>
 						<p className="text-black mt-2"> margarita </p>
 					</div>
 					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34"/>
+						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+						</img>
 						<p className="text-black mt-2"> margarita </p>
 					</div>
+					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+						</img>
+						<p className="text-black mt-2"> margarita </p>
+					</div>
+					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+						</img>
+						<p className="text-black mt-2"> margarita </p>
+					</div>
+					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+						</img>
+						<p className="text-black mt-2"> margarita </p>
+					</div>
+				
 				</div>
-			</div> 
-		</div>// body end
-	)
->>>>>>> c6e275db23937527e123e792200d4a0538ed5667
+			</div>
+		</div>
+   
+  	);
 }
