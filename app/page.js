@@ -32,10 +32,8 @@ export default function Home() {
 // 			const data = await res.json();
 			
 			// Process the JSON data
-			// console.log(data);
-			
 			setResult(data)
-		
+
 		} catch (error) {
 			console.error('Error fetching data:', error.message);
 		}
@@ -108,10 +106,7 @@ export default function Home() {
 					</button>
 					</div>
 				) : (null)}
-			{/* {console.log("this is the data"+result)} */}
 			</div>
-			{/* {result} */}
-			{/* {"data":[{"strCategory":"Ordinary Drink"},{"strCategory":"Cocktail"},{"strCategory":"Shake"},{"strCategory":"Other / Unknown"},{"strCategory":"Cocoa"},{"strCategory":"Shot"},{"strCategory":"Coffee / Tea"},{"strCategory":"Homemade Liqueur"},{"strCategory":"Punch / Party Drink"},{"strCategory":"Beer"},{"strCategory":"Soft Drink"}]} */}
 			<div>
 				<div>
 					<ListComponent
