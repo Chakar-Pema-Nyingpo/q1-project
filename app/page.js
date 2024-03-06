@@ -1,59 +1,58 @@
-<<<<<<< HEAD
-"use client"
+// "use client"
 
-import { useState } from "react"
+// import { useState } from "react"
 
 
-export default function Home() {
-	const [result, setResult]=useState(null)
-	const [cockTailToSearchText,setCockTailToSearchText] =useState("")
+// export default function Home() {
+// 	const [result, setResult]=useState(null)
+// 	const [cockTailToSearchText,setCockTailToSearchText] =useState("")
 	
-	// To fetch data from the cocktail DB API
-	async function fetchCocktailData(cockTailToSearch) {
+// 	// To fetch data from the cocktail DB API
+// 	async function fetchCocktailData(cockTailToSearch) {
 		
-		try {
-			// conneting with route.js and sending the parameters 
-			const res = await fetch(`/api/cocktail`, {
-				method:`Post`,
-				body: JSON.stringify({search:cockTailToSearch})
-			})
-			// console.log(res)
+// 		try {
+// 			// conneting with route.js and sending the parameters 
+// 			const res = await fetch(`/api/cocktail`, {
+// 				method:`Post`,
+// 				body: JSON.stringify({search:cockTailToSearch})
+// 			})
+// 			// console.log(res)
 			
-			if (!res.ok) {
-			throw new Error(`HTTP error! Status: ${response.status}`);
-			}
-			const data = await res.json();
+// 			if (!res.ok) {
+// 			throw new Error(`HTTP error! Status: ${response.status}`);
+// 			}
+// 			const data = await res.json();
 			
-			// Process the JSON data
-			console.log(data);
+// 			// Process the JSON data
+// 			console.log(data);
 			
-			setResult(JSON.stringify(data))
-			// return data;
-		} catch (error) {
-			console.error('Error fetching data:', error.message);
-		}
+// 			setResult(JSON.stringify(data))
+// 			// return data;
+// 		} catch (error) {
+// 			console.error('Error fetching data:', error.message);
+// 		}
 
-	}
-	return (
-		<div className="">
-			<div>
-				<input
-				className="text-black "
-				placeholder="enter cocktail name"
-				type="text"
-				onChange={(e) => setCockTailToSearchText(e.target.value)}
-				></input>
-				<button
-				className="border-2 rounded-full bg-sky-500 text-black"
-				onClick={() =>fetchCocktailData(cockTailToSearchText)}
-				>Search</button>
-			</div>
-			<div>
-				<div>{result}</div>
-			</div>
-		</div>
-	);
-=======
+// 	}
+// 	return (
+// 		<div className="">
+// 			<div>
+// 				<input
+// 				className="text-black "
+// 				placeholder="enter cocktail name"
+// 				type="text"
+// 				onChange={(e) => setCockTailToSearchText(e.target.value)}
+// 				></input>
+// 				<button
+// 				className="border-2 rounded-full bg-sky-500 text-black"
+// 				onClick={() =>fetchCocktailData(cockTailToSearchText)}
+// 				>Search</button>
+// 			</div>
+// 			<div>
+// 				<div>{result}</div>
+// 			</div>
+// 		</div>
+// 	);
+
 "use client";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
@@ -143,18 +142,18 @@ export default function Home() {
 
 
     <div className="flex flex-col-reverse md:flex-row">
-      <nav className= "items-center rounded-t-[30px] bg-[#B66876] h-20 md:w-16 md:gap-4 md:h-1/2 md:py-4 flex sticky bottom-0 md:flex-col md:justify-around mt-44 md:rounded-full md:ml-2">
+      <nav className= "md:pl-2 items-center rounded-t-[30px] bg-[#B66876] h-20 md:w-16 md:gap-4 md:h-1/2 md:py-4 flex sticky bottom-0 md:flex-col md:justify-around mt-44 md:rounded-full md:ml-2">
 
       <button title="Home" className="mx-auto my-2 h-14 w-14 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
-        <IoMdHome size={40} className="text-black ml-1" />
+        <IoMdHome size={36} className="text-black ml-1" />
         </button>
 
-        <button title="Cocktails" className="mx-auto my-2 h-14 w-14overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
-        <FaMartiniGlassCitrus size={40} className="text-black ml-1" />
+        <button title="Cocktails" className="mx-auto my-2 h-14 w-14 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
+        <FaMartiniGlassCitrus size={36} className="text-black ml-1" />
         </button>
 
         <button title="Ingredients" className="md:pl-1 mx-auto my-2 h-14 w-14 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
-        <FaFilePen size={40} className="text-black ml-1" />
+        <FaFilePen size={36} className="text-black ml-1" />
         </button>
       </nav>
 
@@ -193,13 +192,15 @@ export default function Home() {
       </div>
     </div>
 </div>
+    </>
+  );
+}
 
 
 
  
 
-    </>
-  );
->>>>>>> 5239bd5 (UI)
-}
+
+
+
 
