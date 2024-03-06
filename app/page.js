@@ -4,6 +4,7 @@ import { BsSearch } from "react-icons/bs";
 import { IoMdHome } from "react-icons/io";
 import { FaMartiniGlassCitrus } from "react-icons/fa6";
 import { FaFilePen } from "react-icons/fa6";
+import Image from "next/image";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -34,7 +35,9 @@ export default function Home() {
   return (
 
     <>
-     <nav className= "bg-[#B66876] max-w-full md:h-20 h-12 flex text-nowrap pl-2 justify-between items-center">
+    
+    <div className="bg-field bg-cover"> 
+     <nav className= "mb-2 bg-[#B66876] max-w-full h-20 flex text-nowrap pl-2 justify-between items-center">
       <div className="text-grey-500 md:text-3xl text-xl font-bold text-black flex-none">The Cocktail</div>
       <div className="md:hidden">
         <input
@@ -48,19 +51,19 @@ export default function Home() {
       </button>
       </div>
 
-      <div className="placeholder:center md:mx-auto" >
+      <div className="placeholder:center md:mx-auto " >
 
       <div className="flex justify-between items-center max-w-[500px] w-full text-white ">
         <form
           onSubmit={fetchCocktail}
-          className="md:flex hidden my-4 justify-between items-center w-full p-3 bg-slate-300 border border-slate-300 rounded-md py-2 pl-9 pr-3 focus:outline-none focus:border-rose-400 focus:ring-rose-400 focus:ring-1"
+          className="md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 rounded-md py-2 pl-9 pr-3 focus:outline-none focus:border-rose-400 focus:ring-rose-400 focus:ring-1"
         >
           <div>
             <input
               className="text-center bg-transparent border-none text-black focus:outline-none text-2xl "
               type="text"
               placeholder="Enter Cocktail"
-              onChange={(e) => setCity(e.target.value)}
+          
             ></input>
           </div>
           <button onClick={fetchCocktail}>
@@ -83,49 +86,49 @@ export default function Home() {
     </nav>
 
 
-    <div className="flex flex-col-reverse md:flex-row bg-white">
-      <nav className= "rounded-t-[30px] bg-[#B66876] md:w-16 md:h-1/2 flex sticky bottom-0 md:flex-col md:justify-around mt-44 md:rounded-full md:ml-2">
+    <div className="flex flex-col-reverse md:flex-row">
+      <nav className= "items-centerrounded-t-[30px] bg-[#B66876] h-20 md:w-16 md:h-1/2 flex sticky bottom-0 md:flex-col md:justify-around mt-44 md:rounded-full md:ml-2">
 
-      <button title="Home" className="mx-auto my-2 h-9 w-9 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
-        <IoMdHome size={26} className="text-black ml-1" />
+      <button title="Home" className="mx-auto my-2 h-14 w-14 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
+        <IoMdHome size={40} className="text-black ml-1" />
         </button>
 
-        <button title="Cocktails" className="mx-auto my-2 h-9 w-9 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
-        <FaMartiniGlassCitrus size={26} className="text-black ml-1" />
+        <button title="Cocktails" className="mx-auto my-2 h-14 w-14overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
+        <FaMartiniGlassCitrus size={40} className="text-black ml-1" />
         </button>
 
-        <button title="Ingredients" className="mx-auto my-2 h-9 w-9 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
-        <FaFilePen size={26} className="text-black ml-1" />
+        <button title="Ingredients" className="mx-auto my-2 h-14 w-14 overflow-hidden border border-[#B66876] text-rose-[#B66876] shadow-2xl transition-all duration-200 relative before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:m-auto before:h-0 before:w-0 before:rounded-sm before:bg-rose-400 before:duration-300 before:ease-out hover:text-white hover:before:h-9 hover:before:w-9 hover:before:opacity-25">
+        <FaFilePen size={40} className="text-black ml-1" />
         </button>
       </nav>
 
-      <div className= "text-center bg-[#f8f7f5] w-full h-full md:pl-20 md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 ">
-        <div className="h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+      <div className= "text-center w-full h-full md:pl-10 md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
+        <div className=" rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
             <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-auto w-auto">
             </img>
             <p className="text-black mt-2"> margarita </p>
         </div>
-        <div className="h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
             <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
             </img>
             <p className="text-black mt-2"> margarita </p>
         </div>
-        <div className="h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
             <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
             </img>
             <p className="text-black mt-2"> margarita </p>
         </div>
-        <div className="h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
             <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
             </img>
             <p className="text-black mt-2"> margarita </p>
         </div>
-        <div className="h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
             <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
             </img>
             <p className="text-black mt-2"> margarita </p>
         </div>
-        <div className="h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+        <div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
             <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
             </img>
             <p className="text-black mt-2"> margarita </p>
@@ -133,7 +136,7 @@ export default function Home() {
        
       </div>
     </div>
-
+</div>
 
 
 
