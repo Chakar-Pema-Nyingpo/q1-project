@@ -1,8 +1,8 @@
 // "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
-import {listCategory} from "./component/list-category.jsx"
+import ListComponent from "./component/ListCategory.jsx"
 
 const NAME = "name"
 const INGREDIENTS = "ingredients"
@@ -32,26 +32,20 @@ export default function Home() {
 // 			const data = await res.json();
 			
 			// Process the JSON data
-			// console.log(res);
+			// console.log(data);
 			
-			setResult(JSON.stringify(data))
-			return data;
+			setResult(data)
+		
 		} catch (error) {
 			console.error('Error fetching data:', error.message);
 		}
 		
 	}
 	if (appState === LIST){
-	 var listData= fetchCocktailData("list")
-	 console.log(listData)
+	 fetchCocktailData("list")
+	//  console.log(listData)
 	}
 
-	// useEffect(() => {
-
-	// 	if (searchParameter !== "search.php?i=" && searchParameter !== "search.php?s=") {
-	// 		fetchCocktailData(cockTailToSearchText)
-	// 	}
-	// }, [searchParameter])
 	
 	function handleClick(compo, para){
 		setAppState(compo)
@@ -70,7 +64,7 @@ export default function Home() {
 
 				<button
 					className={"border-2 rounded-full text-white px-4 mx-2 "+(appState === INGREDIENTS? "bg-sky-900":"bg-sky-400")}
-					onClick={() =>handleClick(INGREDIENTS, "search.php?i=")}
+					onClick={() =>handleClick(INGREDIENTS, "filter.php?i=")}
 					>By Ingredients</button>
 
 				<button
@@ -114,10 +108,16 @@ export default function Home() {
 					</button>
 					</div>
 				) : (null)}
-			
+			{/* {console.log("this is the data"+result)} */}
 			</div>
+			{/* {result} */}
+			{/* {"data":[{"strCategory":"Ordinary Drink"},{"strCategory":"Cocktail"},{"strCategory":"Shake"},{"strCategory":"Other / Unknown"},{"strCategory":"Cocoa"},{"strCategory":"Shot"},{"strCategory":"Coffee / Tea"},{"strCategory":"Homemade Liqueur"},{"strCategory":"Punch / Party Drink"},{"strCategory":"Beer"},{"strCategory":"Soft Drink"}]} */}
 			<div>
-				<div>{result}</div>
+				<div>
+					<ListComponent
+						list={result}
+					/>
+				</div>
 			</div>
 		</div>
 	);
