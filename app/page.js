@@ -49,15 +49,9 @@ export default function Home() {
 		   //  console.log(listData)
 		}
 	},[appState===HOME])
-	
-	
-
-	
-
-
 
 	return (
-		<div className="bg-field bg-cover"> 
+		<div className="bg-field bg-cover min-h-screen"> 
 
 			<NavBar
 				appState={appState}
@@ -67,7 +61,7 @@ export default function Home() {
 				searchParameter={searchParameter}
 				setSearchParameter={setSearchParameter}
 			/>
-			<div className="flex flex-col-reverse md:flex-row">
+			<div className="flex flex-col-reverse md:flex-row min-h-screen">
 			<SideNavBar
 				appState={appState}
 				setAppState={setAppState}
