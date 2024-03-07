@@ -33,7 +33,7 @@ export default function Home() {
 			throw new Error(`HTTP error! Status: ${response.status}`);
 			}
 			const data = await res.json();
-			
+			console.log(data)
 			// Process the JSON data
 			setResult(data)
 
@@ -62,37 +62,11 @@ export default function Home() {
 			/>
 
 			<div className= "text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
-				<div className=" rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-auto w-auto">
-					</img>
-					<p className="text-black mt-2"> margarita </p>
-				</div>
-				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-					</img>
-					<p className="text-black mt-2"> margarita </p>
-				</div>
-				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-					</img>
-					<p className="text-black mt-2"> margarita </p>
-				</div>
-				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-					</img>
-					<p className="text-black mt-2"> margarita </p>
-				</div>
-				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-					</img>
-					<p className="text-black mt-2"> margarita </p>
-				</div>
-				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-					</img>
-					<p className="text-black mt-2"> margarita </p>
-				</div>
+				<ListComponent
+					list={result}
+				/>
 			</div>
+
 		</div>
 	</div>
 	
