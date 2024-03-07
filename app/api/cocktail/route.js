@@ -16,11 +16,6 @@ export async function POST(request){
         }
     })
     const data= await res.json()
-    if(parameter === "search.php?i="){
-        // console.log(data +"here")
-        return Response.json({data: data?.ingredients})
-    }else{
         // console.log(data +"down here")
         return Response.json({data: data?.drinks})
-    }
-}
+};
