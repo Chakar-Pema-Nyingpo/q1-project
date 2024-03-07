@@ -28,13 +28,13 @@ export default function SideNavBar({
 			onClick={()=>handleClick(HOME,"list.php?c=")}
 			className={"md:pl-1 rounded-full mx-auto my-2 h-14 w-14 border border-[#B66876] "+(appState===HOME? "bg-[#ff8791]":"")}
 			>
-				<IoMdHome size={36} className="text-black ml-1" />
+				<IoMdHome size={36} className="text-black md:ml-1 ml-2" />
 			</button>
 
 			<button 
 			title="Cocktails" 
 			onClick={()=>handleClick(NAME,"search.php?s=")}
-			className={"md:pl-2 rounded-full mx-auto h-14 w-14 "+(appState===NAME? "bg-[#ff8791]":"")}
+			className={"pl-2 rounded-full mx-auto h-14 w-14 "+(appState===NAME? "bg-[#ff8791]":"")}
 			>
 				<FaMartiniGlassCitrus size={36} className="text-black ml-1" />
 			</button>
@@ -42,7 +42,7 @@ export default function SideNavBar({
 			<button 
 			title="Ingredients" 
 			onClick={()=>handleClick(INGREDIENTS,"filter.php?i=")}
-			className={"rounded-full md:pl-3 mx-auto my-2 h-14 w-14 "+(appState===INGREDIENTS? "bg-[#ff8791]":"")}
+			className={"rounded-full pl-3 mx-auto my-2 h-14 w-14 "+(appState===INGREDIENTS? "bg-[#ff8791]":"")}
 			>
 				<FaFilePen size={32} className="text-black ml-1" />
 			</button>
