@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import NavBar from "./component/nav"
 import SideNavBar from "./component/side-nav"
+import ListDrinks from "./component/ListDrinks"
 
 
 import ListComponent from "./component/ListCategory.jsx"
@@ -18,6 +19,7 @@ export default function Home() {
 	const [result, setResult]=useState(null)
 	const [cockTailToSearchText,setCockTailToSearchText] = useState()
 	const [searchParameter, setSearchParameter] = useState("list.php?c=")
+	const [invalidInputWarning, setInvalidInputWarning] = useState('');
 	
 	// To fetch data from the cocktail DB API
 	async function fetchCocktailData(cockTailToSearch,parameter) {
@@ -30,12 +32,18 @@ export default function Home() {
 			// console.log(res)
 			
 			if (!res.ok) {
-			throw new Error(`HTTP error! Status: ${response.status}`);
+			throw new Error(`HTTP error! Status: ${res.status}`);
 			}
 			const data = await res.json();
 			console.log(data)
 			// Process the JSON data
-			setResult(data)
+			if(data.data !== null){
+				setResult(data)
+				setInvalidInputWarning('')
+			}else{
+				setInvalidInputWarning('Invalid input. Please try again.')
+			}
+			
 
 		} catch (error) {
 			console.error('Error fetching data:', error.message);
@@ -70,15 +78,25 @@ export default function Home() {
 				fetchCocktailData={fetchCocktailData}
 				
 			/>
-			{appState === HOME? (
+			{appState === HOME && searchParameter === "list.php?c=" &&(
 				<h1 className="text-center text-4xl">
 					Drinks Category
 					<ListComponent
 						list={result}
+						fetchCocktailData={fetchCocktailData}
 					/>
 				</h1>
-			):(null)}
+			)}
+			{appState === NAME && searchParameter === "search.php?s=" &&(
+				<h1 className="text-center text-4xl">
+					Cocktails
+				<ListDrinks
+					list={result}
+				/>
+			</h1>
+			)}
 
+		{invalidInputWarning && <p className="text-red-500 mx-auto text-3xl bg-yellow-300 p-8 rounded-full">{invalidInputWarning}</p>}
 		</div>
 	</div>
 	

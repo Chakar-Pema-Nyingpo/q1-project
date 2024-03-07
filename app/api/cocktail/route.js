@@ -6,7 +6,7 @@ export async function POST(request){
     const {search, parameter} = await request.json();
     // console.log(search, parameter)
     const encodedSearch=encodeURIComponent(search)
-    // console.log(`${BASE_URL}/${API_KEY}/${parameter}${encodedSearch}`)
+    console.log(`${BASE_URL}/${API_KEY}/${parameter}${encodedSearch}`)
     
     const res = await fetch(`${BASE_URL}/${API_KEY}/${parameter}${encodedSearch}`,{
         method: 'post',
