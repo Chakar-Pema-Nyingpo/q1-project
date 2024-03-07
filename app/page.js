@@ -139,44 +139,40 @@ export default function Home() {
 			) : (null)}	
 			</nav>
 
-			<div className="flex flex-col-reverse md:flex-row">
-			{/* <nav className= "md:px-2 items-center rounded-t-[30px] bg-[#B66876] h-20 md:w-16 md:gap-4 md:h-1/2 md:py-4 flex sticky bottom-0 md:flex-col md:justify-around mt-44 md:rounded-full md:ml-2"> */}
-
-				<div className= "text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
-					<div className=" rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-auto w-auto">
-						</img>
-						<p className="text-black mt-2"> margarita </p>
-					</div>
-					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-						</img>
-						<p className="text-black mt-2"> margarita </p>
-					</div>
-					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-						</img>
-						<p className="text-black mt-2"> margarita </p>
-					</div>
-					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-						</img>
-						<p className="text-black mt-2"> margarita </p>
-					</div>
-					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-						</img>
-						<p className="text-black mt-2"> margarita </p>
-					</div>
-					<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
-						<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
-						</img>
-						<p className="text-black mt-2"> margarita </p>
-					</div>
-				
+		<div className="flex flex-col-reverse md:flex-row">
+			<div className= "text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
+				<div className=" rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-auto w-auto">
+					</img>
+					<p className="text-black mt-2"> margarita </p>
+				</div>
+				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+					</img>
+					<p className="text-black mt-2"> margarita </p>
+				</div>
+				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+					</img>
+					<p className="text-black mt-2"> margarita </p>
+				</div>
+				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+					</img>
+					<p className="text-black mt-2"> margarita </p>
+				</div>
+				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+					</img>
+					<p className="text-black mt-2"> margarita </p>
+				</div>
+				<div className="rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-34 w-34">
+					</img>
+					<p className="text-black mt-2"> margarita </p>
 				</div>
 			</div>
 		</div>
-   
-  	);
+	</div>
+  );
 }
