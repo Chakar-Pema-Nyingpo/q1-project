@@ -1,21 +1,18 @@
 import { BsSearch } from "react-icons/bs";
 
-import { useState } from "react";
-
 const NAME = "name"
 const INGREDIENTS = "ingredients"
-const HOME = "list"
+const HOME = "home"
 
-export default function NavBar(){
-	const [appState, setAppState] = useState(HOME)
-	const [cockTailToSearchText,setCockTailToSearchText] = useState()
-	const [searchParameter, setSearchParamter] = useState("list.php?c=")
+export default function NavBar({
+	appState,
+	setCockTailToSearchText,
+	cockTailToSearchText,
+	fetchCocktailData,
+	searchParameter,
+	setSearchParameter,
 
-	function handleClick(compo, para){
-		setAppState(compo)
-		setSearchParamter(para)
-	}
-
+}) {
     return (
 		<nav className= "mb-2 bg-[#B66876] max-w-full h-20 flex text-nowrap pl-2 justify-between items-center md:pr-96">
 			<div className="text-grey-500 md:text-3xl text-xl font-bold text-black flex-none">
@@ -37,21 +34,17 @@ export default function NavBar(){
 					</div>
 					<div className="placeholder:center md:mx-auto" >
 						<div className="flex justify-between items-center max-w-[500px] w-full text-white ">
-							<form
-								onSubmit={()=>fetchCocktailData(cockTailToSearchText,"search.php?s=")}
-								className="md:rounded-full md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 py-2 pl-7 pr-3 focus:outline-none focus:border-rose-400 focus:ring-rose-400 focus:ring-1">
-								<div>
-									<input
-										className="md:pr-4 text-center bg-transparent border-none text-black focus:outline-none text-2xl "
-										type="text"
-										onChange={(e) => setCockTailToSearchText(e.target.value)}
-										placeholder="Enter Cocktail"
-									/>
-								</div>
-								<button onClick={()=>fetchCocktailData(cockTailToSearchText)}>
+							<div className="md:rounded-full md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 py-2 pl-7 pr-3 hover:bg-[#ff8791]">
+								<input
+									className="md:pr-4 text-center bg-transparent border-none text-black focus:outline-none text-2xl "
+									type="text"
+									onChange={(e) => setCockTailToSearchText(e.target.value)}
+									placeholder="Enter Cocktail"
+								/>
+								<button onClick={()=>fetchCocktailData(cockTailToSearchText,"search.php?s=")}>
 									<BsSearch size={20} className="text-black" />
 								</button>
-							</form>
+							</div>	
 						</div>
 					</div>
 			</div>
@@ -71,22 +64,20 @@ export default function NavBar(){
 						</button>
 					</div>
 					<div className="placeholder:center md:mx-auto " >
-						<div className="flex justify-between items-center max-w-[500px] w-full text-white ">
-							<form
-								onSubmit={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}
-								className="md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 rounded-md py-2 pl-9 pr-3 focus:outline-none focus:border-rose-400 focus:ring-rose-400 focus:ring-1">
-								<div>
+						<div className="placeholder:center md:mx-auto" >
+							<div className="flex justify-between items-center max-w-[500px] w-full text-white ">
+								<div className="md:rounded-full md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 py-2 pl-7 pr-3 hover:bg-[#ff8791]">
 									<input
-										className="text-center bg-transparent border-none text-black focus:outline-none text-2xl "
+										className="md:pr-4 text-center bg-transparent border-none text-black focus:outline-none text-2xl "
 										type="text"
 										onChange={(e) => setCockTailToSearchText(e.target.value)}
 										placeholder="Enter Cocktail"
 									/>
-								</div>
-								<button onClick={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}>
-									<BsSearch size={20} className="text-black" />
-								</button>
-							</form>
+									<button onClick={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}>
+										<BsSearch size={20} className="text-black" />
+									</button>
+								</div>	
+							</div>
 						</div>
 					</div>
 			</div>
@@ -105,23 +96,21 @@ export default function NavBar(){
 							<BsSearch size={20} className="text-white pt-1" />
 						</button>
 					</div>
-					<div className="placeholder:center md:mx-auto" >
-						<div className="flex justify-between items-center max-w-[500px] w-full text-white ">
-							<form
-								onSubmit={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}
-								className="md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 rounded-md py-2 pl-9 pr-3 focus:outline-none focus:border-rose-400 focus:ring-rose-400 focus:ring-1">
-								<div>
+					<div className="placeholder:center md:mx-auto " >
+						<div className="placeholder:center md:mx-auto" >
+							<div className="flex justify-between items-center max-w-[500px] w-full text-white ">
+								<div className="md:rounded-full md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 py-2 pl-7 pr-3 hover:bg-[#ff8791]">
 									<input
-										className="text-center bg-transparent border-none text-black focus:outline-none text-2xl "
+										className="md:pr-4 text-center bg-transparent border-none text-black focus:outline-none text-2xl "
 										type="text"
 										onChange={(e) => setCockTailToSearchText(e.target.value)}
-										placeholder="Enter Cocktail Ingredient"
+										placeholder="Enter Ingredient"
 									/>
-								</div>
-								<button onClick={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}>
-									<BsSearch size={20} className="text-black" />
-								</button>
-							</form>
+									<button onClick={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}>
+										<BsSearch size={20} className="text-black" />
+									</button>
+								</div>	
+							</div>
 						</div>
 					</div>
 				</div>

@@ -5,14 +5,18 @@ import { useState } from "react";
 
 const NAME = "name"
 const INGREDIENTS = "ingredients"
-const HOME = "list"
+const HOME = "home"
 
-export default function SideNavBar(){
-	const [appState, setAppState] = useState(HOME)
+export default function SideNavBar({
+	appState,
+	setAppState,
+	setSearchParameter,
+}) {
+	
 	
 	function handleClick(compo, para){
 		setAppState(compo)
-		setSearchParamter(para)
+		setSearchParameter(para)
 	}
 
     return (

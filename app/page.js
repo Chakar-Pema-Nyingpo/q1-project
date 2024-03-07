@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import NavBar from "./component/nav"
 import SideNavBar from "./component/side-nav"
 
@@ -9,7 +9,7 @@ import ListComponent from "./component/ListCategory.jsx"
 
 const NAME = "name"
 const INGREDIENTS = "ingredients"
-const HOME = "list"
+const HOME = "home"
 
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
 	const [appState, setAppState] = useState(HOME)
 	const [result, setResult]=useState(null)
 	const [cockTailToSearchText,setCockTailToSearchText] = useState()
-	const [searchParameter, setSearchParamter] = useState("list.php?c=")
+	const [searchParameter, setSearchParameter] = useState("list.php?c=")
 	
 	// To fetch data from the cocktail DB API
 	async function fetchCocktailData(cockTailToSearch,parameter) {
@@ -42,10 +42,15 @@ export default function Home() {
 		}
 		
 	}
-	if (appState === HOME){
-	 fetchCocktailData("list","list.php?c=")
-	//  console.log(listData)
-	}
+
+	useEffect(()=>{
+		if (appState === HOME){
+			fetchCocktailData("list","list.php?c=")
+		   //  console.log(listData)
+		}
+	},[appState===HOME])
+	
+	
 
 	
 
@@ -55,17 +60,30 @@ export default function Home() {
 		<div className="bg-field bg-cover"> 
 
 			<NavBar
-		
+				appState={appState}
+				setCockTailToSearchText={setCockTailToSearchText}
+				cockTailToSearchText={cockTailToSearchText}
+				fetchCocktailData={fetchCocktailData}
+				searchParameter={searchParameter}
+				setSearchParameter={setSearchParameter}
 			/>
-		<div className="flex flex-col-reverse md:flex-row">
+			<div className="flex flex-col-reverse md:flex-row">
 			<SideNavBar
+				appState={appState}
+				setAppState={setAppState}
+				setSearchParameter={setSearchParameter}
+				setCockTailToSearchText={setCockTailToSearchText}
+				fetchCocktailData={fetchCocktailData}
+				
 			/>
-
-			<div className= "text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
-				<ListComponent
-					list={result}
-				/>
-			</div>
+			{appState === HOME? (
+				<h1 className="text-center text-4xl">
+					Drinks Category
+					<ListComponent
+						list={result}
+					/>
+				</h1>
+			):(null)}
 
 		</div>
 	</div>
