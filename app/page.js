@@ -21,12 +21,12 @@ export default function Home() {
 	const [searchParameter, setSearchParamter] = useState("list.php?c=")
 	
 	// To fetch data from the cocktail DB API
-	async function fetchCocktailData(cockTailToSearch) {
+	async function fetchCocktailData(cockTailToSearch,parameter) {
 		try {
 			// conneting with route.js and sending the parameters 
 			const res = await fetch(`/api/cocktail`, {
 				method:`Post`,
-				body: JSON.stringify({search:cockTailToSearch, parameter:searchParameter})
+				body: JSON.stringify({search:cockTailToSearch, parameter:parameter})
 			})
 			// console.log(res)
 			
@@ -44,7 +44,7 @@ export default function Home() {
 		
 	}
 	if (appState === HOME){
-	 fetchCocktailData("list")
+	 fetchCocktailData("list","list.php?c=")
 	//  console.log(listData)
 	}
 
@@ -57,18 +57,12 @@ export default function Home() {
 
 	return (
 		<div className="bg-field bg-cover"> 
-		<nav className= "mb-2 bg-[#B66876] max-w-full h-20 flex text-nowrap pl-2 justify-between items-center">
+		<nav className= "mb-2 bg-[#B66876] max-w-full h-20 flex text-nowrap pl-2 justify-between items-center md:pr-96">
 			<div className="text-grey-500 md:text-3xl text-xl font-bold text-black flex-none">
 				The Cocktail
 			</div>
 			
 			{appState === HOME ? (
-				<div className="md:hidden">
-
-				</div>
-			) : (null)}
-				
-			{appState === NAME ? (
 				<div>
 					<div className="md:hidden">
 						<input
@@ -77,14 +71,14 @@ export default function Home() {
 							placeholder="Enter Cocktail"
 							onChange={(e) => setCockTailToSearchText(e.target.value)}
 						/>
-						<button onClick={fetchCocktailData(cockTailToSearchText)}>
+						<button onClick={fetchCocktailData(cockTailToSearchText,"search.php?s=")}>
 							<BsSearch size={20} className="text-white pt-1" />
 						</button>
 					</div>
 					<div className="placeholder:center md:mx-auto " >
 						<div className="flex justify-between items-center max-w-[500px] w-full text-white ">
 							<form
-								onSubmit={fetchCocktailData(cockTailToSearchText)}
+								onSubmit={fetchCocktailData(cockTailToSearchText,"search.php?s=")}
 								className="md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 rounded-md py-2 pl-9 pr-3 focus:outline-none focus:border-rose-400 focus:ring-rose-400 focus:ring-1">
 								<div>
 									<input
@@ -102,6 +96,41 @@ export default function Home() {
 					</div>
 			</div>
 			) : (null)}
+				
+			{appState === NAME ? (
+				<div>
+					<div className="md:hidden">
+						<input
+							className="text-center text-black focus:outline-none text-xl bg-slate-300 mx-2 w-4/5 rounded-md  "
+							type="text"
+							placeholder="Enter Cocktail"
+							onChange={(e) => setCockTailToSearchText(e.target.value)}
+						/>
+						<button onClick={fetchCocktailData(cockTailToSearchText,searchParameter)}>
+							<BsSearch size={20} className="text-white pt-1" />
+						</button>
+					</div>
+					<div className="placeholder:center md:mx-auto " >
+						<div className="flex justify-between items-center max-w-[500px] w-full text-white ">
+							<form
+								onSubmit={fetchCocktailData(cockTailToSearchText,searchParameter)}
+								className="md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 rounded-md py-2 pl-9 pr-3 focus:outline-none focus:border-rose-400 focus:ring-rose-400 focus:ring-1">
+								<div>
+									<input
+										className="text-center bg-transparent border-none text-black focus:outline-none text-2xl "
+										type="text"
+										onChange={(e) => setCockTailToSearchText(e.target.value)}
+										placeholder="Enter Cocktail"
+									/>
+								</div>
+								<button onClick={fetchCocktailData(cockTailToSearchText,searchParameter)}>
+									<BsSearch size={20} className="text-black" />
+								</button>
+							</form>
+						</div>
+					</div>
+			</div>
+			) : (null)}
 
 			{appState === INGREDIENTS ? (
 				<div>
@@ -112,14 +141,14 @@ export default function Home() {
 							placeholder="Enter Cocktail Ingredient"
 							onChange={(e) => setCockTailToSearchText(e.target.value)}
 						/>
-						<button onClick={fetchCocktailData(cockTailToSearchText)}>
+						<button onClick={fetchCocktailData(cockTailToSearchText,searchParameter)}>
 							<BsSearch size={20} className="text-white pt-1" />
 						</button>
 					</div>
-					<div className="placeholder:center md:mx-auto " >
+					<div className="placeholder:center md:mx-auto" >
 						<div className="flex justify-between items-center max-w-[500px] w-full text-white ">
 							<form
-								onSubmit={fetchCocktailData(cockTailToSearchText)}
+								onSubmit={fetchCocktailData(cockTailToSearchText,searchParameter)}
 								className="md:flex hidden my-4 justify-between items-center w-full p-3 border border-slate-300 rounded-md py-2 pl-9 pr-3 focus:outline-none focus:border-rose-400 focus:ring-rose-400 focus:ring-1">
 								<div>
 									<input
@@ -129,7 +158,7 @@ export default function Home() {
 										placeholder="Enter Cocktail Ingredient"
 									/>
 								</div>
-								<button onClick={fetchCocktailData(cockTailToSearchText)}>
+								<button onClick={fetchCocktailData(cockTailToSearchText,searchParameter)}>
 									<BsSearch size={20} className="text-black" />
 								</button>
 							</form>
@@ -140,6 +169,32 @@ export default function Home() {
 			</nav>
 
 		<div className="flex flex-col-reverse md:flex-row">
+		<nav className= "items-center rounded-t-[30px] bg-[#B66876] h-20 md:w-16 md:h-1/2 flex sticky bottom-0 md:flex-col md:justify-around mt-44 md:rounded-full md:mx-2">
+
+			<button 
+			title="Home" 
+			onClick={()=>handleClick(HOME,"list.php?c=")}
+			className={"md:pl-1 rounded-full mx-auto my-2 h-14 w-14 border border-[#B66876] "+(appState===HOME? "bg-[#ff8791]":"")}
+			>
+				<IoMdHome size={36} className="text-black ml-1" />
+			</button>
+
+			<button 
+			title="Cocktails" 
+			onClick={()=>handleClick(NAME,"search.php?s=")}
+			className={"md:pl-2 rounded-full mx-auto h-14 w-14 "+(appState===NAME? "bg-[#ff8791]":"")}
+			>
+				<FaMartiniGlassCitrus size={36} className="text-black ml-1" />
+			</button>
+
+			<button 
+			title="Ingredients" 
+			onClick={()=>handleClick(INGREDIENTS,"filter.php?i=")}
+			className={"rounded-full md:pl-3 mx-auto my-2 h-14 w-14 "+(appState===INGREDIENTS? "bg-[#ff8791]":"")}
+			>
+				<FaFilePen size={32} className="text-black ml-1" />
+			</button>
+	 	</nav>
 			<div className= "text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
 				<div className=" rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
 					<img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-auto w-auto">
