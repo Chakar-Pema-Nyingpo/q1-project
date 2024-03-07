@@ -157,7 +157,7 @@ export default function Home() {
         </button>
       </nav>
 
-      <div className= "text-center w-full h-full md:pl-10 md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
+      <div className= "text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
         <div className=" rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
             <img src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/5noda61589575158.jpg" className="h-auto w-auto">
             </img>
