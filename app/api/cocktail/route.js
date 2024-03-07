@@ -6,7 +6,7 @@ export async function POST(request){
     const {search, parameter} = await request.json();
     // console.log(search, parameter)
     const encodedSearch=encodeURIComponent(search)
-    // console.log(`${BASE_URL}/${API_KEY}/${parameter}${encodedSearch}`)
+    console.log(`${BASE_URL}/${API_KEY}/${parameter}${encodedSearch}`)
     
     const res = await fetch(`${BASE_URL}/${API_KEY}/${parameter}${encodedSearch}`,{
         method: 'post',
@@ -17,5 +17,10 @@ export async function POST(request){
     })
     const data= await res.json()
         // console.log(data +"down here")
-        return Response.json({data: data?.drinks})
+        return new Response(JSON.stringify({ data: data?.drinks }), {
+            headers: {
+                "content-type": "application/json"
+            },
+            status: res.status
+        });
 };
