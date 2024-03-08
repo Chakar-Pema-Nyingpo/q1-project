@@ -4,8 +4,9 @@ export default function ListComponent({
 	fetchCocktailData,
     setAppState
 }) {
-    if (!list) return <></>
-    // console.log(list+"here")
+    if (list){
+
+    
     return(
     <h1 className="text-center text-4xl">
     Drink Category
@@ -201,4 +202,5 @@ export default function ListComponent({
      </h1>
     )
  }
+}
  

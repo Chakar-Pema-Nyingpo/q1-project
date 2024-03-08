@@ -67,11 +67,11 @@ export default function Home() {
 
 			<NavBar
 				appState={appState}
+				setAppState={setAppState}
 				setCockTailToSearchText={setCockTailToSearchText}
 				cockTailToSearchText={cockTailToSearchText}
 				fetchCocktailData={fetchCocktailData}
 				searchParameter={searchParameter}
-				onPageChange={() => setResult(null)}
 				setSearchParameter={setSearchParameter}
 			/>
 			<div className="flex flex-col-reverse md:flex-row min-h-screen">
@@ -80,34 +80,28 @@ export default function Home() {
 				setAppState={setAppState}
 				setSearchParameter={setSearchParameter}
 				setCockTailToSearchText={setCockTailToSearchText}
-				onPageChange={() => setResult(null)}
+				onPageChange={()=>setResult(null)}
 				fetchCocktailData={fetchCocktailData}
 				
 			/>
 			{appState === HOME &&(
-				
-					<ListComponent
-						list={result}
-						fetchCocktailData={fetchCocktailData}
-						setAppState={setAppState}
-					/>		
+				<ListComponent
+					list={result}
+					fetchCocktailData={fetchCocktailData}
+					setAppState={setAppState}
+				/>		
 			)}
 			{appState === NAME &&(
-				<h1 className="text-center text-4xl">
-					Cocktails
+				
 				<ListDrinks
 					list={result}
 				/>
-			</h1>
 			)}
-			{appState === INGREDIENTS && searchParameter === "filter.php?i=" &&(
-				<h1 className="text-center text-4xl">
-					By Ingredients
+			{appState === INGREDIENTS &&(
 				<ListIng
 					list={result}
 				/>
-			</h1>
-			)}			{appState === LIST && (
+			)}{appState === LIST && (
 				<DrinkCate
 					list={result}
 					setAppState={setAppState}
@@ -115,7 +109,7 @@ export default function Home() {
 				/>	
 			)}	
 			{console.log(appState)}
-		{invalidInputWarning && <p className="text-[#ff0000] mx-28 text-3xl ">{invalidInputWarning}</p>}
+		{invalidInputWarning && <p className="text-[#ff0000] bg-[#ff8791] h-fit p-5 w-full mx-28 text-3xl ">{invalidInputWarning}</p>}
 		</div>
 	</div>
 	

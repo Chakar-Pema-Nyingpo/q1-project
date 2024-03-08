@@ -25,8 +25,10 @@ export default function ListDrinks({ list }) {
       <div className="text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-2 md:pr-5">
         {/* {console.log(drinkDetails)} */}
         {drinkDetails.map((obj, index) => (
+          <h1 className="text-center text-4xl">
+					Cocktails
           <div key={index} className="">
-            <div className="min-h-72 md:flex rounded-xl h-fit w-full md:gap-4 bg-[#FFE7E9] p-8 pt-6 mb-2 md:grid md:grid-cols-2">
+            <div className="min-h-72 md:flex rounded-xl h-full w-full md:gap-4 bg-[#FFE7E9] p-8 pt-6 mb-2 md:grid md:grid-cols-2">
               <div className="md:h-fit ">
                 <img src={obj.src} className="h-34 w-34" alt={obj.name} />
                 <p className="text-2xl font-bold text-black mt-2">{obj.name}</p>
@@ -53,7 +55,8 @@ export default function ListDrinks({ list }) {
               </div>
             </div>
           </div>
-        ))}
+        </h1>
+        )) }
       </div>
     );
   }
