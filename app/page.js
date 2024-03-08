@@ -5,6 +5,8 @@ import NavBar from "./component/nav"
 import SideNavBar from "./component/side-nav"
 import ListDrinks from "./component/ListDrinks"
 
+import ListIng from "./component/ing"
+
 
 import ListComponent from "./component/ListCategory.jsx"
 import DrinkCate from "./component/DrinkCategory"
@@ -69,6 +71,7 @@ export default function Home() {
 				cockTailToSearchText={cockTailToSearchText}
 				fetchCocktailData={fetchCocktailData}
 				searchParameter={searchParameter}
+				onPageChange={() => setResult(null)}
 				setSearchParameter={setSearchParameter}
 			/>
 			<div className="flex flex-col-reverse md:flex-row min-h-screen">
@@ -77,6 +80,7 @@ export default function Home() {
 				setAppState={setAppState}
 				setSearchParameter={setSearchParameter}
 				setCockTailToSearchText={setCockTailToSearchText}
+				onPageChange={() => setResult(null)}
 				fetchCocktailData={fetchCocktailData}
 				
 			/>
@@ -96,7 +100,14 @@ export default function Home() {
 				/>
 			</h1>
 			)}
-			{appState === LIST && (
+			{appState === INGREDIENTS && searchParameter === "filter.php?i=" &&(
+				<h1 className="text-center text-4xl">
+					By Ingredients
+				<ListIng
+					list={result}
+				/>
+			</h1>
+			)}			{appState === LIST && (
 				<DrinkCate
 					list={result}
 					setAppState={setAppState}
@@ -104,7 +115,7 @@ export default function Home() {
 				/>	
 			)}	
 			{console.log(appState)}
-		{invalidInputWarning && <p className="text-red-500 mx-auto text-3xl bg-yellow-300 p-8 rounded-full">{invalidInputWarning}</p>}
+		{invalidInputWarning && <p className="text-[#ff0000] mx-28 text-3xl ">{invalidInputWarning}</p>}
 		</div>
 	</div>
 	

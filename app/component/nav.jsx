@@ -11,6 +11,7 @@ export default function NavBar({
 	cockTailToSearchText,
 	fetchCocktailData,
 	searchParameter,
+	onPageChange,
 	setSearchParameter,
 
 }) {
@@ -29,7 +30,10 @@ export default function NavBar({
 							placeholder="Enter Cocktail"
 							onChange={(e) => setCockTailToSearchText(e.target.value)}
 						/>
-						<button onClick={()=>fetchCocktailData(cockTailToSearchText,"search.php?s=")}>
+						<button onClick={()=> {
+							fetchCocktailData(cockTailToSearchText,"search.php?s=")
+							onPageChange()
+						}}>
 							<BsSearch size={20} className="text-white pt-1" />
 						</button>
 					</div>
@@ -42,7 +46,12 @@ export default function NavBar({
 									onChange={(e) => setCockTailToSearchText(e.target.value)}
 									placeholder="Enter Cocktail"
 								/>
-								<button onClick={()=>fetchCocktailData(cockTailToSearchText,"search.php?s=")}>
+								<button onClick={
+									()=> {
+									fetchCocktailData(cockTailToSearchText,"search.php?s=")
+									onPageChange()
+									}
+								}>
 									<BsSearch size={20} className="text-black" />
 								</button>
 							</div>	
@@ -60,7 +69,10 @@ export default function NavBar({
 							placeholder="Enter Cocktail"
 							onChange={(e) => setCockTailToSearchText(e.target.value)}
 						/>
-						<button onClick={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}>
+						<button onClick={()=>
+						{fetchCocktailData(cockTailToSearchText,searchParameter)
+						onPageChange()
+						}}>
 							<BsSearch size={20} className="text-white pt-1" />
 						</button>
 					</div>
@@ -74,7 +86,10 @@ export default function NavBar({
 									onChange={(e) => setCockTailToSearchText(e.target.value)}
 									placeholder="Enter Cocktail"
 								/>
-								<button onClick={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}>
+								<button onClick={()=>
+								{fetchCocktailData(cockTailToSearchText,searchParameter)
+								onPageChange()
+								}}>
 									<BsSearch size={20} className="text-black" />
 								</button>
 							</div>	
@@ -92,7 +107,10 @@ export default function NavBar({
 							placeholder="Enter Ingredient"
 							onChange={(e) => setCockTailToSearchText(e.target.value)}
 						/>
-						<button onClick={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}>
+						<button onClick={()=>
+						{fetchCocktailData(cockTailToSearchText,searchParameter)
+						onPageChange()
+						}}>
 							<BsSearch size={20} className="text-white pt-1" />
 						</button>
 					</div>
@@ -106,7 +124,10 @@ export default function NavBar({
 									onChange={(e) => setCockTailToSearchText(e.target.value)}
 									placeholder="Enter Ingredient"
 								/>
-								<button onClick={()=>fetchCocktailData(cockTailToSearchText,searchParameter)}>
+								<button onClick={()=>
+								{fetchCocktailData(cockTailToSearchText,searchParameter)
+								onPageChange()
+								}}>
 									<BsSearch size={20} className="text-black" />
 								</button>
 							</div>	

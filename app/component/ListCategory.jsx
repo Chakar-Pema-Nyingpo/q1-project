@@ -13,7 +13,7 @@ export default function ListComponent({
      {list.data.map((obj)=>{
        if(obj.strCategory == "Soft Drink"){
             return(
-                <div key="1" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+                <div key="1" className=" rounded-xl h-fit w-fit bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
                     onClick={()=>
                         {fetchCocktailData(obj.strCategory,"filter.php?c=")
