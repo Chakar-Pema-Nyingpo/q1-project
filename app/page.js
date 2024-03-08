@@ -7,10 +7,12 @@ import ListDrinks from "./component/ListDrinks"
 
 
 import ListComponent from "./component/ListCategory.jsx"
+import DrinkCate from "./component/DrinkCategory"
 
 const NAME = "name"
 const INGREDIENTS = "ingredients"
 const HOME = "home"
+const LIST= "list"
 
 
 export default function Home() {
@@ -78,16 +80,15 @@ export default function Home() {
 				fetchCocktailData={fetchCocktailData}
 				
 			/>
-			{appState === HOME && searchParameter === "list.php?c=" &&(
-				<h1 className="text-center text-4xl">
-					Drinks Category
+			{appState === HOME &&(
+				
 					<ListComponent
 						list={result}
 						fetchCocktailData={fetchCocktailData}
-					/>
-				</h1>
+						setAppState={setAppState}
+					/>		
 			)}
-			{appState === NAME && searchParameter === "search.php?s=" &&(
+			{appState === NAME &&(
 				<h1 className="text-center text-4xl">
 					Cocktails
 				<ListDrinks
@@ -95,7 +96,14 @@ export default function Home() {
 				/>
 			</h1>
 			)}
-
+			{appState === LIST && (
+				<DrinkCate
+					list={result}
+					setAppState={setAppState}
+					fetchCocktailData={fetchCocktailData}
+				/>	
+			)}	
+			{console.log(appState)}
 		{invalidInputWarning && <p className="text-red-500 mx-auto text-3xl bg-yellow-300 p-8 rounded-full">{invalidInputWarning}</p>}
 		</div>
 	</div>

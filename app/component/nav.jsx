@@ -3,6 +3,7 @@ import { BsSearch } from "react-icons/bs";
 const NAME = "name"
 const INGREDIENTS = "ingredients"
 const HOME = "home"
+const LIST ="list"
 
 export default function NavBar({
 	appState,
@@ -19,7 +20,7 @@ export default function NavBar({
 				The Cocktail
 			</div>
 			
-			{appState === HOME ? (
+			{appState === HOME || appState === LIST? (
 				<div>
 					<div className="md:hidden">
 						<input
