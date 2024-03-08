@@ -23,6 +23,7 @@ export default function ListDrinks({ list }) {
   
     return (
       <div className="text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-2 md:pr-5">
+        {/* {console.log(drinkDetails)} */}
         {drinkDetails.map((obj, index) => (
           <div key={index} className="">
             <div className="min-h-72 md:flex rounded-xl h-fit w-full md:gap-4 bg-[#FFE7E9] p-8 pt-6 mb-2 md:grid md:grid-cols-2">
