@@ -1,17 +1,24 @@
+const LIST= "list"
 export default function ListComponent({
     list,
 	fetchCocktailData,
+    setAppState
 }) {
     if (!list) return <></>
     // console.log(list+"here")
     return(
+    <h1 className="text-center text-4xl">
+    Drink Category
     <div className= "text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5 ">
      {list.data.map((obj)=>{
        if(obj.strCategory == "Soft Drink"){
             return(
                 <div key="1" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                    onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}>
+                    onClick={()=>
+                        {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                        setAppState(LIST)
+                    }}>
                     <img
                         className="h-34 w-34" 
                         src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/qxrvqw1472718959.jpg"
@@ -22,12 +29,14 @@ export default function ListComponent({
             )
         }else if(obj.strCategory == "Beer"){
             return(
-                <div key="2" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
+                <div key="2" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 p-6 mb-2">
                     <button
-                        onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}
-                    >
+                        onClick={()=>
+                            {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                            setAppState(LIST)
+                        }}>
                     <img
-                        className="h-34 w-34" 
+                        className="" 
                         src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/xxyywq1454511117.jpg"
                         />
                     <p className="text-xl text-black mt-2">{obj.strCategory}</p>
@@ -38,8 +47,10 @@ export default function ListComponent({
             return(
                 <div key="3" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                        onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}
-                    >
+                       onClick={()=>
+                        {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                        setAppState(LIST)
+                    }}>
 
                         <img
                             className="h-34 w-34" 
@@ -53,8 +64,10 @@ export default function ListComponent({
             return(
                 <div key="4" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                    onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}
-                    >
+                   onClick={()=>
+                    {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                    setAppState(LIST)
+                }}>
 
                     <img
                         className="h-34 w-34" 
@@ -68,8 +81,10 @@ export default function ListComponent({
             return(
                 <div key="5" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                    onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}>
-
+                        onClick={()=>
+                            {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                            setAppState(LIST)
+                        }}>
                     <img
                         className="h-34 w-34" 
                         src="https:\/\/www.thecocktaildb.com\/images\/media\/drink\/rvwrvv1468877323.jpg"
@@ -82,7 +97,10 @@ export default function ListComponent({
             return(
                 <div key="6" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                    onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}>
+                    onClick={()=>
+                        {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                        setAppState(LIST)
+                    }}>
 
                     <img
                         className="h-34 w-34" 
@@ -96,7 +114,10 @@ export default function ListComponent({
             return(
                 <div key="7" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                    onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}>
+                    onClick={()=>
+                        {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                        setAppState(LIST)
+                    }}>
 
                     <img
                         className="h-34 w-34" 
@@ -110,7 +131,10 @@ export default function ListComponent({
             return(
                 <div key="8" className=" min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                    onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}>
+                    onClick={()=>
+                        {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                        setAppState(LIST)
+                    }}>
 
                     <img
                         className="h-34 w-34" 
@@ -124,7 +148,10 @@ export default function ListComponent({
             return(
                 <div key="9" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                    onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}>
+                    onClick={()=>
+                        {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                        setAppState(LIST)
+                    }}>
 
                     <img
                         className="h-34 w-34" 
@@ -138,7 +165,10 @@ export default function ListComponent({
             return(
                 <div key="10" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                    onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}>
+                    onClick={()=>
+                        {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                        setAppState(LIST)
+                    }}>
 
                     <img
                         className="h-34 w-34" 
@@ -152,7 +182,10 @@ export default function ListComponent({
             return(
                 <div key="11" className="min-h-72  rounded-xl h-fit w-full bg-[#FFE7E9] p-8 pt-6 mb-2">
                     <button
-                    onClick={()=>fetchCocktailData(obj.strCategory,"filter.php?c=")}>
+                    onClick={()=>
+                        {fetchCocktailData(obj.strCategory,"filter.php?c=")
+                        setAppState(LIST)
+                    }}>
 
                     <img
                         className="h-34 w-34" 
@@ -165,6 +198,7 @@ export default function ListComponent({
         }
       }) }
      </div>
+     </h1>
     )
  }
  

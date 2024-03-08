@@ -1,4 +1,5 @@
 export default function ListDrinks({ list }) {
+  if(list){
     const drinkDetails = list.data.map((drink) => {
       const details = {
         name: drink.strDrink,
@@ -55,4 +56,5 @@ export default function ListDrinks({ list }) {
       </div>
     );
   }
+}
   
