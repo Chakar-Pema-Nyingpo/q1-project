@@ -1,4 +1,5 @@
 export default function ListIng({ list }) {
+  if(list){
     const drinkDetails = list.data.map((drink) => {
       const details = {
         name: drink.strDrink,
@@ -10,6 +11,8 @@ export default function ListIng({ list }) {
     });
   
     return (
+    <h1 className="text-center text-4xl">
+			By Ingredients
       <div className="text-center w-full h-full md:pt-8 grid grid-cols-1 gap-3 md:grid-cols-3 md:pr-5">
         {drinkDetails.map((obj) => (
           <div key={obj.idDrink} className="">
@@ -22,6 +25,8 @@ export default function ListIng({ list }) {
           </div>
         ))}
       </div>
+    </h1>
     );
   }
+}
   

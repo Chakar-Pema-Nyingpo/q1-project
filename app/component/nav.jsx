@@ -7,11 +7,11 @@ const LIST ="list"
 
 export default function NavBar({
 	appState,
+	setAppState,
 	setCockTailToSearchText,
 	cockTailToSearchText,
 	fetchCocktailData,
 	searchParameter,
-	onPageChange,
 	setSearchParameter,
 
 }) {
@@ -32,7 +32,7 @@ export default function NavBar({
 						/>
 						<button onClick={()=> {
 							fetchCocktailData(cockTailToSearchText,"search.php?s=")
-							onPageChange()
+							setAppState(NAME)
 						}}>
 							<BsSearch size={20} className="text-white pt-1" />
 						</button>
@@ -46,12 +46,10 @@ export default function NavBar({
 									onChange={(e) => setCockTailToSearchText(e.target.value)}
 									placeholder="Enter Cocktail"
 								/>
-								<button onClick={
-									()=> {
+								<button onClick={()=> {
 									fetchCocktailData(cockTailToSearchText,"search.php?s=")
-									onPageChange()
-									}
-								}>
+									setAppState(NAME)
+								}}>
 									<BsSearch size={20} className="text-black" />
 								</button>
 							</div>	
@@ -71,7 +69,6 @@ export default function NavBar({
 						/>
 						<button onClick={()=>
 						{fetchCocktailData(cockTailToSearchText,searchParameter)
-						onPageChange()
 						}}>
 							<BsSearch size={20} className="text-white pt-1" />
 						</button>
@@ -88,7 +85,6 @@ export default function NavBar({
 								/>
 								<button onClick={()=>
 								{fetchCocktailData(cockTailToSearchText,searchParameter)
-								onPageChange()
 								}}>
 									<BsSearch size={20} className="text-black" />
 								</button>
@@ -109,7 +105,6 @@ export default function NavBar({
 						/>
 						<button onClick={()=>
 						{fetchCocktailData(cockTailToSearchText,searchParameter)
-						onPageChange()
 						}}>
 							<BsSearch size={20} className="text-white pt-1" />
 						</button>
@@ -126,7 +121,6 @@ export default function NavBar({
 								/>
 								<button onClick={()=>
 								{fetchCocktailData(cockTailToSearchText,searchParameter)
-								onPageChange()
 								}}>
 									<BsSearch size={20} className="text-black" />
 								</button>

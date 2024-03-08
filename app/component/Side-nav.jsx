@@ -11,12 +11,14 @@ export default function SideNavBar({
 	appState,
 	setAppState,
 	setSearchParameter,
+	onPageChange,
 }) {
 	
 	
 	function handleClick(compo, para){
 		setAppState(compo)
 		setSearchParameter(para)
+		onPageChange(null)
 	}
 
     return (
